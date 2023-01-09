@@ -6,16 +6,10 @@
 cat token.txt | grep SWMTKN | awk '{print $5 " " $6}' >token
 
 ./docker2 swarm join \
-    --token $(cat token) \
-    --advertise-addr docker2-dev \
-    --data-path-addr docker2-dev \
-    --listen-addr docker2-dev
+    --token $(cat token)
 
 ./docker3 swarm join \
-    --token $(cat token) \
-    --advertise-addr docker3-dev \
-    --data-path-addr docker3-dev \
-    --listen-addr docker3-dev
+    --token $(cat token)
 
 ./docker1 node update --label-add name=docker1 $(./docker1 system info 2>/dev/null | grep NodeID: | awk '{print $2}')
 ./docker1 node update --label-add name=docker2 $(./docker2 system info 2>/dev/null | grep NodeID: | awk '{print $2}')

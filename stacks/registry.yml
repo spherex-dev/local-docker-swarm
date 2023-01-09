@@ -10,3 +10,9 @@ services:
       - registry_volume:/var/lib/registry 
     ports:
       - 5100:5000
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.name == docker1

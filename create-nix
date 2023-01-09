@@ -1,0 +1,10 @@
+#!/bin/bash
+
+sudo ip link add name docker2-dev type dummy
+sudo ip link add name docker3-dev type dummy
+
+sudo ip addr add 192.168.1.11/32 dev docker2-dev
+sudo ip addr add 192.168.1.12/32 dev docker3-dev
+
+sudo ip link set dev docker2-dev up
+sudo ip link set dev docker3-dev up

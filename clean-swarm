@@ -1,0 +1,4 @@
+#!/bin/bash
+./docker3 swarm leave &
+./docker2 swarm leave 
+./docker1 swarm leave --force &

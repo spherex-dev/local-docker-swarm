@@ -1,0 +1,15 @@
+#!/bin/bash
+
+push_image() {
+    name=$1
+    ./docker1 pull ${name} && ./docker1 tag ${name} localhost:5100/${name} && ./docker1 push localhost:5100/${name}
+}
+
+# sets up registry on the main server
+./docker1 stack deploy -c stacks/registry.yml registry
+push_image "mongo:6.0" &
+push_image "postgres:12-alpine" &
+push_image "mysql:8" &
+push_image "ghost:5" &
+
+./docker1 stack deploy -c stacks/mongo.yml mongo-cluster &

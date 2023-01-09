@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  registry:
+    image: registry:2
+    # ports:
+    #   - 5101:5000
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.name == docker1

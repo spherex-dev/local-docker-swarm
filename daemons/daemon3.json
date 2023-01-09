@@ -9,7 +9,7 @@
   "cluster-store": "",
   "cluster-store-opts": {},
   "containerd-namespace": "docker",
-  "data-root": "/home/justin/Coding/Docker/SwarmTest/data/daemon3",
+  "data-root": "data/daemon3",
   "default-address-pools": [
     {
       "base": "172.30.0.0/16",
@@ -66,7 +66,7 @@
   "node-generic-resources": [
   ],
   "oom-score-adjust": -500,
-  "pidfile": "/home/justin/Coding/Docker/SwarmTest/pid/daemon3.pid",
+  "pidfile": "pid/daemon3.pid",
   "raw-logs": false,
   "registry-mirrors": [],
   "seccomp-profile": "",
